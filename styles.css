@@ -7,7 +7,7 @@
   }
   
   .box .group {
-    position: fixed;
+    position: absolute;
     width: 1526px;
     height: 1462px;
     top: 0;
