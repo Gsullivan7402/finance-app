@@ -40,7 +40,7 @@
 }
 
 /* box color for just Quote of Day container*/
-.box .div { 
+.box #quote-container { 
   position: absolute;
   width: 1436px;
   height: 230px;
@@ -48,20 +48,6 @@
   left: 38px;
   border-radius: 35px;
   background: linear-gradient(180deg, rgba(217, 217, 217, 0.5) 0%, rgba(217, 217, 217, 0) 100%);
-}
-
-/* Styling for Quote of Day title only */
-.box .text-wrapper {
-  position: absolute;
-  width: 410px;
-  top: 176px;
-  left: 62px;
-  font-family: "Alata-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff80;
-  font-size: 36px;
-  letter-spacing: 0;
-  line-height: normal;
 }
 
 /* styling for Finance App title only */
@@ -81,6 +67,29 @@
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
+}
+
+/* Styling for Quote of Day title only */
+.box .text-wrapper {
+  position: absolute;
+  width: 410px;
+  top: 176px;
+  left: 62px;
+  font-family: "Alata-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.box #quote-text {
+  position: relative;
+  top: 230px;
+  left: 100px;
+  font-family: "Alata-Regular", Helvetica;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.835);
 }
 
 .box .div-wrapper {
