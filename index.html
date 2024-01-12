@@ -112,9 +112,45 @@
     </script>
 
     <script>
-        function convertCurrency() {
-            // ... (the existing conversion code)
-        }
+      function convertCurrency() {
+      var amount = parseFloat(document.getElementById('amount').value);
+      console.log('Amount:', amount); // Log the amount for debugging
+  
+      if (isNaN(amount) || amount <= 0) {
+          alert('Please enter a valid amount');
+          return;
+      }
+  
+      var fromCurrency = document.getElementById('fromCurrency').value;
+      var toCurrency = document.getElementById('toCurrency').value;
+  
+      var requestURL = `http://api.exchangeratesapi.io/v1/convert?access_key=a2bdf00a154b9052944188019ed9e6f1&from=${fromCurrency}&to=${toCurrency}&amount=${amount}`;
+      console.log('Request URL:', requestURL); // Log the request URL
+  
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', requestURL, true);
+      xhr.onload = function () {
+          console.log('Response Status:', xhr.status);
+          console.log('Response Text:', xhr.responseText);
+  
+          if (xhr.status === 200) {
+              var result = JSON.parse(xhr.responseText);
+              if (result.success) {
+                  document.getElementById('conversionResult').innerText = `Converted Amount: ${result.result.toFixed(2)} ${toCurrency}`;
+              } else {
+                  alert('Error in currency conversion: ' + result.error.info);
+              }
+          } else {
+              alert('Error in currency conversion. Status: ' + xhr.status);
+          }
+      };
+  
+      xhr.onerror = function () {
+          console.error("Request failed. Error:", xhr.statusText);
+      };
+  
+      xhr.send();
+  }
     </script>
 
     <script src="script.js"></script>
