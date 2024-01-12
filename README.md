@@ -1,4 +1,5 @@
-# finance-app
+# Pennywise 
+Because finances can be scary 
 
 The beginning of the finance App! 
 
