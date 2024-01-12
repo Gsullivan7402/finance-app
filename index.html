@@ -23,8 +23,19 @@
     </div>
 
     <div class="overlap-2">
-      <div class="text-wrapper-4">BUDGET</div>
-    </div>
+      <div class="text-wrapper-4">Currency Converter</div>
+      <input type="number" id="amount" placeholder="Amount">
+      <select id="fromCurrency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+      </select>
+      <select id="toCurrency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+      </select>
+      <button onclick="convertCurrency()">Convert</button>
+      <div id="conversionResult"></div>
+  </div>
 
     <div class="overlap-3">
       <div class="text-wrapper-5">INCOME</div>
@@ -35,12 +46,87 @@
     </div>
 
     <div class="overlap-5">
-      <div class="text-wrapper-3">TIPS</div>
+      <div class="text-wrapper-3">TIP OF THE REFRESH</div>
+      <div id="message"></div> <!-- this line is what displays the tip -->
     </div>
+      </div>
+    </div>
+  </div>
+<!--this block makes the TOTD work -->
+<script type="text/javascript">
+const messages = [
+"Create a monthly budget to track your expenses.",
+"Cut unnecessary expenses to save more money.",
+"Consider investing in stocks or real estate for long-term wealth.",
+"Start a side hustle to increase your income.",
+"Set financial goals and create a plan to achieve them.",
+"Don't buy a yacht, or do. I'm just a tip not a financial advisor.",
+"Typically, index funds yield the best return over time.",
+"Remember, money isn't everything, but it is pretty cool.",
+"Mo money, Mo problems... -The Notorious B.I.G. ",
+"Havin moneys not everything not havin it is -Kanye West, Good Life ft. T-Pain",
+"Money is not peace of mind. Moneys not happiness. Money is, at its essence, that measure of a mans choices. -Ozark",
+"Stop buying things you dont need. To impress people you dont like with money you dont have. -Biggie Smalls",
+"Make more money, So you can save more money, then youll have more money!",
+"If you cant buy it twice, you cant afford it -DMX",
+"You Win Some And Lose Some, As Long As The Outcome Is Income. -50 Cent"
+];
 
-            </div>
-          </div>
-        </div>
+function getRandomMessage() {
+const randomIndex = Math.floor(Math.random() * messages.length);
+return messages[randomIndex];
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+const messageElement = document.getElementById("message");
+messageElement.textContent = getRandomMessage();
+});
+
+
+</script>
+
+<script>
+  function convertCurrency() {
+      var amount = parseFloat(document.getElementById('amount').value);
+      console.log('Amount:', amount); // Log the amount for debugging
+  
+      if (isNaN(amount) || amount <= 0) {
+          alert('Please enter a valid amount');
+          return;
+      }
+  
+      var fromCurrency = document.getElementById('fromCurrency').value;
+      var toCurrency = document.getElementById('toCurrency').value;
+  
+      var requestURL = `http://api.exchangeratesapi.io/v1/convert?access_key=a2bdf00a154b9052944188019ed9e6f1&from=${fromCurrency}&to=${toCurrency}&amount=${amount}`;
+      console.log('Request URL:', requestURL); // Log the request URL
+  
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', requestURL, true);
+      xhr.onload = function () {
+          console.log('Response Status:', xhr.status);
+          console.log('Response Text:', xhr.responseText);
+  
+          if (xhr.status === 200) {
+              var result = JSON.parse(xhr.responseText);
+              if (result.success) {
+                  document.getElementById('conversionResult').innerText = `Converted Amount: ${result.result.toFixed(2)} ${toCurrency}`;
+              } else {
+                  alert('Error in currency conversion: ' + result.error.info);
+              }
+          } else {
+              alert('Error in currency conversion. Status: ' + xhr.status);
+          }
+      };
+  
+      xhr.onerror = function () {
+          console.error("Request failed. Error:", xhr.statusText);
+      };
+  
+      xhr.send();
+  }
+  </script>
+
       </body>
     </html>
     
