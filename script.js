@@ -108,3 +108,81 @@ window.onload = function () {
     });
     updateSummary();
 };
+
+let goals = [];
+
+// Load goals from localStorage on page load
+window.onload = function () {
+  const storedGoals = localStorage.getItem('goals');
+  if (storedGoals) {
+    goals = JSON.parse(storedGoals);
+    displayGoals();
+  }
+};
+
+function addGoal() {
+  const goalInput = document.getElementById('goal');
+  const targetInput = document.getElementById('target');
+
+  const goal = goalInput.value;
+  const target = parseFloat(targetInput.value);
+
+  if (goal && !isNaN(target) && target > 0) {
+    goals.push({ goal, target, progress: 0 });
+    displayGoals();
+    saveGoalsToLocalStorage();
+    goalInput.value = '';
+    targetInput.value = '';
+  } else {
+    alert('Please enter a valid goal and target amount.');
+  }
+}
+
+function updateProgress(index, amount) {
+  goals[index].progress = Math.min(amount, goals[index].target);
+  displayGoals();
+  saveGoalsToLocalStorage();
+
+  // Check if the goal is met and mark it as completed
+  if (goals[index].progress >= goals[index].target) {
+    alert(`Congratulations! Goal "${goals[index].goal}" is completed!`);
+    
+    // Remove completed goal from the array
+    goals.splice(index, 1);
+
+    // Update display after removing the goal
+    displayGoals();
+  }
+}
+
+function displayGoals() {
+  const goalList = document.getElementById('goalList');
+  goalList.innerHTML = '';
+
+  goals.forEach((goal, index) => {
+    const li = document.createElement('li');
+    
+    let status = '';
+    if (goal.progress >= goal.target) {
+      status = ' (Completed)';
+    }
+
+    li.innerHTML = `
+      <strong>${goal.goal}</strong> - Target: $${goal.target.toFixed(2)}${status}<br>
+      <div class="progress-bar">
+        <div class="progress" style="width: ${(goal.progress / goal.target) * 100}%"></div>
+      </div>
+      <button onclick="updateProgress(${index}, ${goal.progress + 10})">+ $10</button>
+      <button onclick="updateProgress(${index}, ${goal.progress + 20})">+ $20</button>
+      <button onclick="updateProgress(${index}, ${goal.progress + 50})">+ $50</button>
+      <button onclick="updateProgress(${index}, ${goal.progress + 100})">+ $100</button>
+
+    `;
+    goalList.appendChild(li);
+  });
+}
+
+function saveGoalsToLocalStorage() {
+  localStorage.setItem('goals', JSON.stringify(goals));
+}
+
