@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="box">
+        <div class="group">
+            <div class="overlap-group">
+                <div class="overlap">
+                    <header class="finance-app-title"></header>
+                    <div class="text-wrapper-2">FINANCE APP</div>
+                    <div id="quote-container"></div>
+                    <div class="text-wrapper">QUOTE OF THE DAY</div>
+                    <p id="quote-text"></p>
+                </div>
+
+                <div class="div-wrapper">
+                    <div class="text-wrapper-3">GOAL</div>
+                </div>
+
+                <div class="overlap-2">
+                    <div class="text-wrapper-4">Currency Converter</div>
+                    <input type="number" id="amount" placeholder="Amount">
+                    <select id="fromCurrency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                    <select id="toCurrency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                    <button onclick="convertCurrency()">Convert</button>
+                    <div id="conversionResult"></div>
+                </div>
+
+                <div class="overlap-3">
+                    <div class="text-wrapper-5">INCOME</div>
+                </div>
+
+                <div class="overlap-4">
+                    <div class="text-wrapper-6">EXPENSES</div>
+                </div>
+
+                <div class="overlap-5">
+                    <div class="text-wrapper-3">TIP OF THE REFRESH</div>
+                    <div id="message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tracker">
+        <h2>Income/Expense Tracker</h2>
+
+        <div id="transactionButtons">
+            <button onclick="toggleFields('income')">Add Income</button>
+            <button onclick="toggleFields('expense')">Add Expense</button>
+        </div>
+
+        <div id="incomeFields" style="display: none;">
+            <label for="incomeInput">Income:</label>
+            <input type="number" id="incomeInput" placeholder="Enter income" onkeydown="handleEnter(event, 'income')">
+            <button onclick="addTransaction('income')">Add Income</button>
+        </div>
+
+        <div id="expenseFields" style="display: none;">
+            <label for="expenseInput">Expense:</label>
+            <input type="number" id="expenseInput" placeholder="Enter expense" onkeydown="handleEnter(event, 'expense')">
+            <button onclick="addTransaction('expense')">Add Expense</button>
+        </div>
+
+        <div id="summary">
+            <p>Total Income: <span id="totalIncome">$0</span></p>
+            <p>Total Expenses: <span id="totalExpense">$0</span></p>
+            <p>Balance: <span id="balance">$0</span></p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const messages = [
+            "Create a monthly budget to track your expenses.",
+            "Cut unnecessary expenses to save more money.",
+            "Consider investing in stocks or real estate for long-term wealth.",
+            "Start a side hustle to increase your income.",
+            "Set financial goals and create a plan to achieve them.",
+            "Don't buy a yacht, or do. I'm just a tip not a financial advisor.",
+            "Typically, index funds yield the best return over time.",
+            "Remember, money isn't everything, but it is pretty cool.",
+            "Mo money, Mo problems... -The Notorious B.I.G. ",
+            "Havin moneys not everything not havin it is -Kanye West, Good Life ft. T-Pain",
+            "Money is not peace of mind. Moneys not happiness. Money is, at its essence, that measure of a mans choices. -Ozark",
+            "Stop buying things you dont need. To impress people you dont like with money you dont have. -Biggie Smalls",
+            "Make more money, So you can save more money, then youll have more money!",
+            "If you cant buy it twice, you cant afford it -DMX",
+            "You Win Some And Lose Some, As Long As The Outcome Is Income. -50 Cent"
+        ];
+
+        function getRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            return messages[randomIndex];
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const messageElement = document.getElementById("message");
+            messageElement.textContent = getRandomMessage();
+        });
+    </script>
+
+    <script>
+      function convertCurrency() {
+      var amount = parseFloat(document.getElementById('amount').value);
+      console.log('Amount:', amount); // Log the amount for debugging
+  
+      if (isNaN(amount) || amount <= 0) {
+          alert('Please enter a valid amount');
+          return;
+      }
+  
+      var fromCurrency = document.getElementById('fromCurrency').value;
+      var toCurrency = document.getElementById('toCurrency').value;
+  
+      var requestURL = `http://api.exchangeratesapi.io/v1/convert?access_key=a2bdf00a154b9052944188019ed9e6f1&from=${fromCurrency}&to=${toCurrency}&amount=${amount}`;
+      console.log('Request URL:', requestURL); // Log the request URL
+  
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', requestURL, true);
+      xhr.onload = function () {
+          console.log('Response Status:', xhr.status);
+          console.log('Response Text:', xhr.responseText);
+  
+          if (xhr.status === 200) {
+              var result = JSON.parse(xhr.responseText);
+              if (result.success) {
+                  document.getElementById('conversionResult').innerText = `Converted Amount: ${result.result.toFixed(2)} ${toCurrency}`;
+              } else {
+                  alert('Error in currency conversion: ' + result.error.info);
+              }
+          } else {
+              alert('Error in currency conversion. Status: ' + xhr.status);
+          }
+      };
+  
+      xhr.onerror = function () {
+          console.error("Request failed. Error:", xhr.statusText);
+      };
+  
+      xhr.send();
+  }
+    </script>
+
+<div class="container">
+    <h1>Goals Widget</h1>
+    <div>
+      <label for="goal">Goal:</label>
+      <input type="text" id="goal" placeholder="Enter your goal">
+      <label for="target">Target Amount:</label>
+      <input type="number" id="target" placeholder="Enter target amount">
+      <button onclick="addGoal()">Add Goal</button>
+    </div>
+    <ul id="goalList"></ul>
+  </div> 
+
+    <script src="script.js"></script>
+</body>
+</html>
