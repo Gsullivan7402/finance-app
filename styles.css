@@ -5,8 +5,32 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #041632ff
+  ;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+h2{
+  color: #fff;
+}
+
+p{
+  color: #fff;
+}
+
+label{
+  color: #fff;
+}
+
+strong{
+  color: #fff;
+}
+
+li{
+  color: white;
+}
+
+#message{
+  color: white;
 }
 
 #tracker {
@@ -14,7 +38,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   font-weight: bold;
-  background-color: #fff;
+  background-color: rgb(75, 126, 177);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -25,10 +49,13 @@ body {
 #transactionButtons button {
   margin: 5px;
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #041632ff;
   color: #fff;
   border: none;
   cursor: pointer;
+}
+#transactionButtons button:hover {
+  background-color: rgb(117, 146, 193);
 }
 
 .box {
@@ -71,9 +98,10 @@ body {
   position: relative;
   text-align: center;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc00;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: rgb(75, 126, 177)
+  ;
   margin-bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
@@ -90,7 +118,7 @@ input {
 
 button {
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #041632ff;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -98,7 +126,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: rgb(117, 146, 193);
 }
 
 ul {
@@ -107,7 +135,6 @@ ul {
 }
 
 li {
-  border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
@@ -119,10 +146,11 @@ li {
   border-radius: 5px;
   margin-top: 5px;
   overflow: hidden;
+  margin-bottom: 5px;
 }
 
 .progress {
   height: 100%;
-  background-color: #4caf50;
+  background-color: #041632ff;
   border-radius: 5px;
 }
