@@ -1,128 +1,99 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #e8eff7; /* Light blue background */
   margin: 0;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f4f4f4;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-#tracker {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  background-color: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-bottom: 10px;
+  color: #333;
 }
 
-#transactionButtons button {
-  margin: 5px;
-  padding: 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.box {
-  width: 100%;
-  height: auto;
-  position: relative;
-}
-
-/* Adjustments to specific elements within the box */
-.box .group,
-.box .overlap-group,
-.box .overlap,
-.box .finance-app-title,
-.box #quote-container,
-.box .text-wrapper-2,
-.box .text-wrapper,
-.box #quote-text,
-.box .div-wrapper,
-.box .text-wrapper-3,
-.box .overlap-2,
-.box .overlap-3,
-.box .overlap-4,
-.box .overlap-5 {
-  width: 100%;
-}
-
-/* Additional adjustments to specific elements */
-.box .overlap {
-  height: auto;
-}
-
-/* Currency Converter Styles */
-.box .overlap-2 {
-  width: 100%;
-  height: auto;
-}
-
-/* Styling for the goals */
 .container {
-  position: relative;
-  text-align: center;
+  background-color: #f0f7ff; /* Slightly darker blue for contrast */
   padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.overlap-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.text-wrapper, .text-wrapper-2, .text-wrapper-3, .text-wrapper-4, .text-wrapper-5, .text-wrapper-6 {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #205081; /* Darker blue for headers */
+}
+
+input[type="number"], select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fff;
-  margin-bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-label {
-  margin-right: 10px;
-}
-
-input {
-  padding: 5px;
-  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 button {
-  padding: 10px;
-  background-color: #4caf50;
-  color: #fff;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
+#conversionResult, #quote-text, #message, #totalIncome, #totalExpense, #balance {
+  background-color: #ffffff;
   padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
-.progress-bar {
-  background-color: #e0e0e0;
-  height: 20px;
-  border-radius: 5px;
-  margin-top: 5px;
-  overflow: hidden;
+#tracker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.progress {
-  height: 100%;
-  background-color: #4caf50;
+#transactionButtons, #incomeFields, #expenseFields, #summary {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#goalList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#goalList li {
+  background-color: #ffffff;
+  margin-top: 10px;
+  padding: 10px;
   border-radius: 5px;
+}
+
+/* Advanced Styling */
+.finance-app-title {
+  font-size: 24px;
+  text-align: center;
+  color: #205081;
+}
+
+/* Hover Effects */
+input[type="number"]:hover, select:hover, button:hover {
+  border-color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .overlap-group {
+      grid-template-columns: 1fr;
+  }
 }

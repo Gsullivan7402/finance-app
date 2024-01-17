@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <h2>Finance App</h2>
+    <title>Penny Wise</title>
     <link rel="stylesheet" href="styles.css">
-=======
-    <title>Finance App</title>
-    <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <div class="box">
@@ -18,13 +13,14 @@
             <div class="overlap-group">
                 <div class="container">
                     <header class="finance-app-title"></header>
+                    <div class="text-wrapper-2">Penny Wise</div>
                     <div id="quote-container"></div>
-                    <h2>QUOTE OF THE DAY</h2>
+                    <div class="text-wrapper">QUOTE OF THE DAY</div>
                     <p id="quote-text"></p>
                 </div>
 
                 <div class="container">
-                    <h2>Currency Converter</h2>
+                    <div class="text-wrapper-4">CURRENCY CONVERTER</div>
                     <input type="number" id="amount" placeholder="Amount">
                     <select id="fromCurrency">
                         <option value="USD">USD</option>
@@ -76,7 +72,7 @@
                 </div>
 
                 <div class="container">
-                    <h2> Tips of the Refresh </h2>
+                    <div class="text-wrapper-3">TIP OF THE REFRESH</div>
                     <div id="message"></div>
                 </div>
             </div>
@@ -109,18 +105,6 @@
             <p>Balance: <span id="balance">$0</span></p>
         </div>
     </div>
-
-    <div class="container">
-        <h2>Goals Widget</h2>
-        <div>
-          <label for="goal">Goal:</label>
-          <input type="text" id="goal" placeholder="Enter your goal">
-          <label for="target">Target Amount:</label>
-          <input type="number" id="target" placeholder="Enter target amount">
-          <button onclick="addGoal()">Add Goal</button>
-        </div>
-        <ul id="goalList"></ul>
-      </div> 
 
     <script type="text/javascript">
         const messages = [
@@ -197,7 +181,17 @@
   }
       </script>
 
-
+<div class="container">
+    <h1>Goals Widget</h1>
+    <div>
+      <label for="goal">Goal:</label>
+      <input type="text" id="goal" placeholder="Enter your goal">
+      <label for="target">Target Amount:</label>
+      <input type="number" id="target" placeholder="Enter target amount">
+      <button onclick="addGoal()">Add Goal</button>
+    </div>
+    <ul id="goalList"></ul>
+  </div> 
 
     <script src="script.js"></script>
 </body>
