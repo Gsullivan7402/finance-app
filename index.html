@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <h2>Finance App</h2>
     <link rel="stylesheet" href="styles.css">
+=======
+    <title>Finance App</title>
+    <link rel="stylesheet" href="styles.csss">
+>>>>>>> d7868b1113f1b28876551d83c30c2e9db8e85c33
 </head>
 <body>
     <div class="box">
@@ -24,10 +29,47 @@
                     <select id="fromCurrency">
                         <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
+                        <option value="JPY">JPY</option>
+                        <option value="GBP">GBP</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="SEK">SEK</option>
+<option value="NZD">NZD</option>
+<option value="NOK">NOK</option>
+<option value="SGD">SGD</option>
+<option value="KRW">KRW</option>
+<option value="INR">INR</option>
+<option value="BRL">BRL</option>
+<option value="ZAR">ZAR</option>
+<option value="HKD">HKD</option>
+<option value="MXN">MXN</option>
+<option value="TRY">TRY</option>
+<option value="RUB">RUB</option>
                     </select>
                     <select id="toCurrency">
                         <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
+                        <option value="JPY">JPY</option>
+                        <option value="GBP">GBP</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="SEK">SEK</option>
+<option value="NZD">NZD</option>
+<option value="NOK">NOK</option>
+<option value="SGD">SGD</option>
+<option value="KRW">KRW</option>
+<option value="INR">INR</option>
+<option value="BRL">BRL</option>
+<option value="ZAR">ZAR</option>
+<option value="HKD">HKD</option>
+<option value="MXN">MXN</option>
+<option value="TRY">TRY</option>
+<option value="RUB">RUB</option>
+                        
                     </select>
                     <button onclick="convertCurrency()">Convert</button>
                     <div id="conversionResult"></div>
@@ -110,10 +152,10 @@
         });
     </script>
 
-    <script>
-      function convertCurrency() {
+<script>
+    function convertCurrency() {
       var amount = parseFloat(document.getElementById('amount').value);
-      console.log('Amount:', amount); // Log the amount for debugging
+      console.log('Amount:', amount);
   
       if (isNaN(amount) || amount <= 0) {
           alert('Please enter a valid amount');
@@ -123,8 +165,8 @@
       var fromCurrency = document.getElementById('fromCurrency').value;
       var toCurrency = document.getElementById('toCurrency').value;
   
-      var requestURL = `http://api.exchangeratesapi.io/v1/convert?access_key=a2bdf00a154b9052944188019ed9e6f1&from=${fromCurrency}&to=${toCurrency}&amount=${amount}`;
-      console.log('Request URL:', requestURL); // Log the request URL
+      var requestURL = `http://api.exchangeratesapi.io/v1/latest?access_key=a2bdf00a154b9052944188019ed9e6f1`;
+      console.log('Request URL:', requestURL);
   
       var xhr = new XMLHttpRequest();
       xhr.open('GET', requestURL, true);
@@ -135,7 +177,10 @@
           if (xhr.status === 200) {
               var result = JSON.parse(xhr.responseText);
               if (result.success) {
-                  document.getElementById('conversionResult').innerText = `Converted Amount: ${result.result.toFixed(2)} ${toCurrency}`;
+                  var fromRate = result.rates[fromCurrency];
+                  var toRate = result.rates[toCurrency];
+                  var convertedAmount = (amount / fromRate) * toRate;
+                  document.getElementById('conversionResult').innerText = `Converted Amount: ${convertedAmount.toFixed(2)} ${toCurrency}`;
               } else {
                   alert('Error in currency conversion: ' + result.error.info);
               }
@@ -150,7 +195,7 @@
   
       xhr.send();
   }
-    </script>
+      </script>
 
 
 
