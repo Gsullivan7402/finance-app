@@ -1,124 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h2>Penny Wise</h2>
-    <link rel="stylesheet" href="styles.css">
-    <title>Finance App</title>
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.min.css"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Finance App</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
 
-</head>
+
 <body>
-    <div class="box">
-        <div class="group">
-            <div class="overlap-group">
-                <div class="container">
-                    <header class="finance-app-title"></header>
-                    <div id="quote-container"></div>
-                    <h2>Quote Of The Day</h2>
-                    <p id="quote-text"></p>
-                </div>
 
-                <div class="container">
-                    <h2>Currency Converter</h2>
-                    <input type="number" id="amount" placeholder="Amount">
-                    <select id="fromCurrency">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="JPY">JPY</option>
-                        <option value="GBP">GBP</option>
-                        <option value="AUD">AUD</option>
-                        <option value="CAD">CAD</option>
-                        <option value="CHF">CHF</option>
-                        <option value="CNY">CNY</option>
-                        <option value="SEK">SEK</option>
-<option value="NZD">NZD</option>
-<option value="NOK">NOK</option>
-<option value="SGD">SGD</option>
-<option value="KRW">KRW</option>
-<option value="INR">INR</option>
-<option value="BRL">BRL</option>
-<option value="ZAR">ZAR</option>
-<option value="HKD">HKD</option>
-<option value="MXN">MXN</option>
-<option value="TRY">TRY</option>
-<option value="RUB">RUB</option>
-                    </select>
-                    <select id="toCurrency">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="JPY">JPY</option>
-                        <option value="GBP">GBP</option>
-                        <option value="AUD">AUD</option>
-                        <option value="CAD">CAD</option>
-                        <option value="CHF">CHF</option>
-                        <option value="CNY">CNY</option>
-                        <option value="SEK">SEK</option>
-<option value="NZD">NZD</option>
-<option value="NOK">NOK</option>
-<option value="SGD">SGD</option>
-<option value="KRW">KRW</option>
-<option value="INR">INR</option>
-<option value="BRL">BRL</option>
-<option value="ZAR">ZAR</option>
-<option value="HKD">HKD</option>
-<option value="MXN">MXN</option>
-<option value="TRY">TRY</option>
-<option value="RUB">RUB</option>
-                        
-                    </select>
-                    <button onclick="convertCurrency()">Convert</button>
-                    <div id="conversionResult"></div>
-                </div>
+    <header>
+        <img src="penny_wise_logo.png" alt="penny-wise-logo" width="175px" style="padding: 20px 5px 20px 30px">
+        <h1>PENNY WISE</h1>
+    </header>
 
-                <div class="container">
-                    <h2> Tips of the Refresh </h2>
-                    <div id="message"></div>
-                </div>
-            </div>
+
+    <section>
+        <div id="quote-container">
+          <h2>Quote of the Day</h2>
+            <blockquote id="quote-text"></blockquote>
         </div>
-    </div>
+    </section>
+    
 
-    <div id="tracker">
-        <h2>Income/Expense Tracker</h2>
-
-        <div id="transactionButtons">
-            <button onclick="toggleFields('income')">Add Income</button>
-            <button onclick="toggleFields('expense')">Add Expense</button>
-        </div>
-
-        <div id="incomeFields" style="display: none;">
-            <label for="incomeInput">Income:</label>
-            <input type="number" id="incomeInput" placeholder="Enter income" onkeydown="handleEnter(event, 'income')">
-            <button onclick="addTransaction('income')">Add Income</button>
-        </div>
-
-        <div id="expenseFields" style="display: none;">
-            <label for="expenseInput">Expense:</label>
-            <input type="number" id="expenseInput" placeholder="Enter expense" onkeydown="handleEnter(event, 'expense')">
-            <button onclick="addTransaction('expense')">Add Expense</button>
-        </div>
-
-        <div id="summary">
-            <p>Total Income: <span id="totalIncome">$0</span></p>
-            <p>Total Expenses: <span id="totalExpense">$0</span></p>
-            <p>Balance: <span id="balance">$0</span></p>
-        </div>
-    </div>
-
-    <div class="container">
+    <section class="goals-container">
         <h2>Goals Widget</h2>
         <div>
-          <label for="goal">Goal:</label>
-          <input type="text" id="goal" placeholder="Enter your goal">
-          <label for="target">Target Amount:</label>
-          <input type="number" id="target" placeholder="Enter target amount">
-          <button onclick="addGoal()">Add Goal</button>
+            <label for="goal">Goal:</label>
+            <input type="text" id="goal" placeholder="What are you saving for?">
+            <label for="target">Target Amount:</label>
+            <input type="number" id="target" placeholder="Enter target amount">
+            <button onclick="addGoal()">Add Goal</button>
         </div>
         <ul id="goalList"></ul>
-      </div> 
+    </section> 
+
+
+    <section class="tips-container">
+        <h2> Tips of the Refresh </h2>
+        <div id="message"></div>
+    </section>
+
 
     <script type="text/javascript">
         const messages = [
@@ -150,53 +76,132 @@
         });
     </script>
 
-<script>
-    function convertCurrency() {
-      var amount = parseFloat(document.getElementById('amount').value);
-      console.log('Amount:', amount);
+
+    <section id="tracker">
+        <h2>Income/Expense Tracker</h2>
+
+        <div id="transactionButtons">
+            <button onclick="toggleFields('income')">Add Income</button>
+            <button onclick="toggleFields('expense')">Add Expense</button>
+        </div>
+
+        <div id="incomeFields" style="display: none;">
+            <label for="incomeInput">Income:</label>
+            <input type="number" id="incomeInput" placeholder="Enter income" onkeydown="handleEnter(event, 'income')">
+            <button onclick="addTransaction('income')">Add Income</button>
+        </div>
+
+        <div id="expenseFields" style="display: none;">
+            <label for="expenseInput">Expense:</label>
+            <input type="number" id="expenseInput" placeholder="Enter expense" onkeydown="handleEnter(event, 'expense')">
+            <button onclick="addTransaction('expense')">Add Expense</button>
+        </div>
+
+        <div id="summary">
+            <p>Total Income: <span id="totalIncome">$0</span></p>
+            <p>Total Expenses: <span id="totalExpense">$0</span></p>
+            <p>Balance: <span id="balance">$0</span></p>
+        </div>
+    </section>
+
+
+    <section class="currency-container">
+       <h2>Currency Converter</h2>
+            <input type="number" id="amount" placeholder="Amount">
+            <select id="fromCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+                <option value="GBP">GBP</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHF</option>
+                <option value="CNY">CNY</option>
+                <option value="SEK">SEK</option>
+                <option value="NZD">NZD</option>
+                <option value="NOK">NOK</option>
+                <option value="SGD">SGD</option>
+                <option value="KRW">KRW</option>
+                <option value="INR">INR</option>
+                <option value="BRL">BRL</option>
+                <option value="ZAR">ZAR</option>
+                <option value="HKD">HKD</option>
+                <option value="MXN">MXN</option>
+                <option value="TRY">TRY</option>
+                <option value="RUB">RUB</option>
+            </select>
+            <select id="toCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="JPY">JPY</option>
+                <option value="GBP">GBP</option>
+                <option value="AUD">AUD</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHF</option>
+                <option value="CNY">CNY</option>
+                <option value="SEK">SEK</option>
+                <option value="NZD">NZD</option>
+                <option value="NOK">NOK</option>
+                <option value="SGD">SGD</option>
+                <option value="KRW">KRW</option>
+                <option value="INR">INR</option>
+                <option value="BRL">BRL</option>
+                <option value="ZAR">ZAR</option>
+                <option value="HKD">HKD</option>
+                <option value="MXN">MXN</option>
+                <option value="TRY">TRY</option>
+                <option value="RUB">RUB</option>
+            </select>
+            <button onclick="convertCurrency()">Convert</button>
+                <div id="conversionResult"></div>
+    </section>
+
+    <script>
+        function convertCurrency() {
+            var amount = parseFloat(document.getElementById('amount').value);
+            console.log('Amount:', amount);
   
-      if (isNaN(amount) || amount <= 0) {
-          alert('Please enter a valid amount');
-          return;
-      }
+            if (isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid amount');
+            return;
+            }
   
-      var fromCurrency = document.getElementById('fromCurrency').value;
-      var toCurrency = document.getElementById('toCurrency').value;
+        var fromCurrency = document.getElementById('fromCurrency').value;
+        var toCurrency = document.getElementById('toCurrency').value;
   
-      var requestURL = `http://api.exchangeratesapi.io/v1/latest?access_key=a2bdf00a154b9052944188019ed9e6f1`;
-      console.log('Request URL:', requestURL);
+        var requestURL = `http://api.exchangeratesapi.io/v1/latest?access_key=a2bdf00a154b9052944188019ed9e6f1`;
+          console.log('Request URL:', requestURL);
   
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', requestURL, true);
-      xhr.onload = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', requestURL, true);
+        xhr.onload = function () {
           console.log('Response Status:', xhr.status);
           console.log('Response Text:', xhr.responseText);
   
-          if (xhr.status === 200) {
-              var result = JSON.parse(xhr.responseText);
-              if (result.success) {
-                  var fromRate = result.rates[fromCurrency];
-                  var toRate = result.rates[toCurrency];
-                  var convertedAmount = (amount / fromRate) * toRate;
-                  document.getElementById('conversionResult').innerText = `Converted Amount: ${convertedAmount.toFixed(2)} ${toCurrency}`;
-              } else {
-                  alert('Error in currency conversion: ' + result.error.info);
-              }
-          } else {
-              alert('Error in currency conversion. Status: ' + xhr.status);
-          }
-      };
+            if (xhr.status === 200) {
+                var result = JSON.parse(xhr.responseText);
+            if (result.success) {
+                var fromRate = result.rates[fromCurrency];
+                var toRate = result.rates[toCurrency];
+                var convertedAmount = (amount / fromRate) * toRate;
+                    document.getElementById('conversionResult').innerText = `Converted Amount: ${convertedAmount.toFixed(2)} ${toCurrency}`;
+                } else {
+                    alert('Error in currency conversion: ' + result.error.info);
+                }
+            } else {
+            alert('Error in currency conversion. Status: ' + xhr.status);
+            }
+        };
   
-      xhr.onerror = function () {
+        xhr.onerror = function () {
           console.error("Request failed. Error:", xhr.statusText);
-      };
+        };
   
-      xhr.send();
-  }
-      </script>
-
-
-
-    <script src="script.js"></script>
+        xhr.send();
+        }
+    </script>
+ 
+<script src="script.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
