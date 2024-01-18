@@ -7,7 +7,7 @@ body {
   height: 100vh;
   background-color: #041632ff;
   overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+} 
 
 h1,
 h2,
@@ -17,11 +17,15 @@ strong,
 li,
 #message {
   color: #fff;
-}
+} 
 
 header {
   display: flex;
   align-items: center;
+}
+
+h2 {
+  font-size: 40px;
 }
 
 #tracker {
@@ -66,7 +70,6 @@ header {
   position: relative;
 }
 
-/* Styling for the goals */
 #quote-container,
 .goals-container,
 .tips-container,
@@ -82,13 +85,25 @@ header {
   transform: translateX(-50%);
 }
 
+#quote-text {
+  color: white;
+  font-size: larger;
+}
+
+#message {
+  font-size: 20px;
+}
+
 label {
   margin-right: 10px;
+  font-size: 20px;
 }
 
 input {
   padding: 5px;
+  justify-content: space-between;
   margin-bottom: 10px;
+  max-width: 350px;
 }
 
 button {
@@ -113,6 +128,7 @@ li {
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
+  font-size: 15px;
 }
 
 .progress-bar {
@@ -128,4 +144,5 @@ li {
   height: 100%;
   background-color: #041632ff;
   border-radius: 5px;
+  margin-top: 1px;
 }

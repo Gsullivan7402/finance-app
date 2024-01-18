@@ -79,6 +79,7 @@ function saveToLocalStorage() {
     localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
+// Quote of the Day API 
 document.addEventListener("DOMContentLoaded", function() {
     fetch("https://type.fit/api/quotes")
         .then(response => response.json())
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error("Error fetching quotes:", error));
 });
 
-// Load data from local storage on page load
+// GOALS WIDGET. Load data from local storage on page load
 window.onload = function () {
     transactions = JSON.parse(localStorage.getItem('transactions')) || [];
     transactions.forEach(transaction => {

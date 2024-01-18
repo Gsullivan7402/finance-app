@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.min.css"  media="screen,projection"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Finance App</title>
         <link rel="stylesheet" href="styles.css">
@@ -12,7 +14,7 @@
 <body>
 
     <header>
-        <img src="penny_wise_logo.png" alt="penny-wise-logo" width="75px" style="padding: 20px 5px 20px 30px">
+        <img src="penny_wise_logo.png" alt="penny-wise-logo" width="175px" style="padding: 20px 5px 20px 30px">
         <h1>PENNY WISE</h1>
     </header>
 
@@ -20,7 +22,7 @@
     <section>
         <div id="quote-container">
           <h2>Quote of the Day</h2>
-            <p id="quote-text"></p>
+            <blockquote id="quote-text"></blockquote>
         </div>
     </section>
     
@@ -29,7 +31,7 @@
         <h2>Goals Widget</h2>
         <div>
             <label for="goal">Goal:</label>
-            <input type="text" id="goal" placeholder="Enter your goal">
+            <input type="text" id="goal" placeholder="What are you saving for?">
             <label for="target">Target Amount:</label>
             <input type="number" id="target" placeholder="Enter target amount">
             <button onclick="addGoal()">Add Goal</button>
@@ -198,7 +200,8 @@
         xhr.send();
         }
     </script>
-
-    <script src="script.js"></script>
+ 
+<script src="script.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
