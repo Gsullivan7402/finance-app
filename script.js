@@ -2,6 +2,19 @@ let totalIncome = 0;
 let totalExpense = 0;
 let transactions = [];
 
+// Load data from local storage on page load
+document.addEventListener('DOMContentLoaded', function () {
+    transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    transactions.forEach(transaction => {
+        if (transaction.type === 'income') {
+            totalIncome += transaction.amount;
+        } else {
+            totalExpense += transaction.amount;
+        }
+    });
+    updateSummary();
+});
+
 function toggleFields(type) {
     const incomeFields = document.getElementById('incomeFields');
     const expenseFields = document.getElementById('expenseFields');
@@ -20,14 +33,10 @@ function addTransaction(type) {
     const amount = parseFloat(amountInput.value);
 
     if (!isNaN(amount)) {
-        let message = '';
-
         if (type === 'income') {
             totalIncome += amount;
-            message = 'Great job! You earned some money.';
         } else {
             totalExpense += amount;
-            message = 'Expense Logged';
             // Add explosion effects here if desired
         }
 
@@ -35,16 +44,13 @@ function addTransaction(type) {
         updateSummary();
         saveToLocalStorage();
 
-        // Show a dramatic message
-        
-
         // Reset input field after adding transaction
         amountInput.value = '';
 
         // Retract the dropdown
         resetTransactionButtons();
     } else {
-        
+        // Handle invalid input
     }
 }
 
