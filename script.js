@@ -36,7 +36,7 @@ function addTransaction(type) {
         saveToLocalStorage();
 
         // Show a dramatic message
-        alert(message);
+        
 
         // Reset input field after adding transaction
         amountInput.value = '';
@@ -44,7 +44,7 @@ function addTransaction(type) {
         // Retract the dropdown
         resetTransactionButtons();
     } else {
-        alert('Please enter a valid amount.');
+        
     }
 }
 
@@ -185,4 +185,3 @@ function displayGoals() {
 function saveGoalsToLocalStorage() {
   localStorage.setItem('goals', JSON.stringify(goals));
 }
-
