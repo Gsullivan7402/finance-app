@@ -94,6 +94,12 @@ h2 {
   font-size: 20px;
 }
 
+#toCurrency,
+#fromCurrency {
+  opacity: 1;
+  width: 80px;
+}
+
 label {
   margin-right: 10px;
   font-size: 20px;
