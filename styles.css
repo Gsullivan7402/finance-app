@@ -5,32 +5,23 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #041632ff
-  ;
+  background-color: #041632ff;
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-h2{
+
+h1,
+h2,
+p,
+label,
+strong,
+li,
+#message {
   color: #fff;
 }
 
-p{
-  color: #fff;
-}
-
-label{
-  color: #fff;
-}
-
-strong{
-  color: #fff;
-}
-
-li{
-  color: white;
-}
-
-#message{
-  color: white;
+header {
+  display: flex;
+  align-items: center;
 }
 
 #tracker {
@@ -58,50 +49,34 @@ li{
   background-color: rgb(117, 146, 193);
 }
 
-.box {
+/* Adjustments to specific elements within the box */
+.finance-app-title,
+#quote-container,
+.text-wrapper-2,
+.text-wrapper,
+#quote-text,
+.div-wrapper,
+.text-wrapper-3,
+.overlap-2,
+.overlap-3,
+.overlap-4,
+.overlap-5 {
   width: 100%;
   height: auto;
   position: relative;
 }
 
-/* Adjustments to specific elements within the box */
-.box .group,
-.box .overlap-group,
-.box .overlap,
-.box .finance-app-title,
-.box #quote-container,
-.box .text-wrapper-2,
-.box .text-wrapper,
-.box #quote-text,
-.box .div-wrapper,
-.box .text-wrapper-3,
-.box .overlap-2,
-.box .overlap-3,
-.box .overlap-4,
-.box .overlap-5 {
-  width: 100%;
-}
-
-/* Additional adjustments to specific elements */
-.box .overlap {
-  height: auto;
-}
-
-/* Currency Converter Styles */
-.box .overlap-2 {
-  width: 100%;
-  height: auto;
-}
-
 /* Styling for the goals */
-.container {
+#quote-container,
+.goals-container,
+.tips-container,
+.currency-container {
   position: relative;
   text-align: center;
   padding: 20px;
   border: 1px solid #cccccc00;
   border-radius: 10px;
-  background-color: rgb(75, 126, 177)
-  ;
+  background-color: rgb(75, 126, 177);
   margin-bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
