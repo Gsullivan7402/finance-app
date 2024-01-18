@@ -1,31 +1,22 @@
 # Pennywise 
-Because finances can be scary 
+PENNY WISE - Because finances can be scary 
 
-The beginning of the finance App! 
+DESCRIPTION:
+A user-friendly finance app designed to help individuals in managing their finances effortlessly by combining budgeting features with motivational elements. This tool combined two API servers for the Tips of the Refresh and Quote of the Day. Dom manipulation is used throughout the javascript to interact and respond to HTML IDs and elements. CSS framworks include Semantic UI and [INSERT 2ND FRAMEWORK HERE]
 
-want a budgeting, saving promoting, projected income calc
-helping distribute income into savings 
-
-
-the features -
-
-income vs expense tracker
-
-compound interest calc 
-
-paycheck calculator, post tax
+KEY FEATURES:
+1. Goal Tracker: Defines and visualizes financial goals with a progress bar that updates in real-time. Data is saved and persists on the webpage even when page refreshes
+2. Income and Expense Tracker: Easily log your income and expenses in real-time. Data is stored in local storage
+3. Currency Converter: When traveling or dealing with international transactions, Penny Wise provides instant exchange rates for major countries around the world.
+4. Quote of the Day: The app opens up with an inspirational quote to encourage individuals in their financial journey
+5. Tips of the Refresh: Stay motivated with financial and budgeting tips to enhance financial literacy
 
 
+USER STORY:
+AS a money-conscious individual
+I want a financially focused app to help monitor my funds
+SO that I can track my income and expenses and set goals for the most efficient budget 
 
-as a professional software dev
-I want a financially focused app so that i can level up my money game
-so that I can track spending and have the most efficient budget 
-
-GIVEN a financial dashboard 
-WHEN I open the app
-GIVEN the most efficient budget 
-WHEN I input my average check amount 
-GIVEN an expense tracking list 
-WHEN I
-GIVEN 
-WHEN I
+ADDITIONAL:
+Deployed App Link: https://gsullivan7402.github.io/finance-app/
+Screenshot of Application: [INSERT SCREENSHOT HERE]
