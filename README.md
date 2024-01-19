@@ -2,7 +2,7 @@
 PENNY WISE - Because finances can be scary 
 
 DESCRIPTION:
-A user-friendly finance app designed to help individuals in managing their finances effortlessly by combining budgeting features with motivational elements. This tool combined two API servers for the Tips of the Refresh and Quote of the Day. Dom manipulation is used throughout the javascript to interact and respond to HTML IDs and elements. CSS framworks include Semantic UI and [INSERT 2ND FRAMEWORK HERE]
+A user-friendly finance app designed to help individuals in managing their finances effortlessly by combining budgeting features with motivational elements. This tool combined two API servers for the Tips of the Refresh and Quote of the Day. Dom manipulation is used throughout the javascript to interact and respond to HTML IDs and elements. CSS framworks include Semantic UI and Materialize.
 
 KEY FEATURES:
 1. Goal Tracker: Defines and visualizes financial goals with a progress bar that updates in real-time. Data is saved and persists on the webpage even when page refreshes
@@ -19,4 +19,4 @@ SO that I can track my income and expenses and set goals for the most efficient 
 
 ADDITIONAL:
 Deployed App Link: https://gsullivan7402.github.io/finance-app/
-Screenshot of Application: [INSERT SCREENSHOT HERE]
+Screenshot of Application: ![Screenshot 2024-01-18 at 9 00 08 PM](https://github.com/Gsullivan7402/finance-app/assets/150744204/259be53c-5d9e-4ddf-835f-609b601d86f5)
